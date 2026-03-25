@@ -162,7 +162,3 @@ manim -pql animation/predictor.py PredictScene
 | Type hints + PEP 8 | Throughout the codebase |
 
 ---
-
-## License
-
-MIT
