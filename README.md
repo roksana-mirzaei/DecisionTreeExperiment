@@ -40,8 +40,3 @@ animation/        # Manim scenes (tree_builder.py, predictor.py)
 tests/            # pytest suite
 results/          # Auto-generated outputs (.txt + .png)
 ```
-
-## License
-
-MIT
-
