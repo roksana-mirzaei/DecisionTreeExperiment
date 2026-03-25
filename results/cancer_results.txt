@@ -1,0 +1,98 @@
+
+==========================================================
+   Breast Cancer Wisconsin — Decision Tree Comparison
+==========================================================
+  Total samples   : 569 (569 original)
+  Features        : 30
+  Train / Test    : 455 / 114
+
+Class distribution:
+  Class         Label   Train    Test
+  --------------------------------
+  Malignant         0     170      42
+  Benign            1     285      72
+
+Class legend:
+  class 0 → Malignant
+  class 1 → Benign
+
+Feature entropy on training data (bits, 10-bin histogram):
+  Feature                               Entropy
+  ----------------------------------------------
+  mean radius                            2.6490
+  mean texture                           2.5595
+  mean perimeter                         2.6276
+  mean area                              2.2681
+  mean smoothness                        2.7684
+  mean compactness                       2.7138
+  mean concavity                         2.4706
+  mean concave points                    2.6093
+  mean symmetry                          2.5101
+  mean fractal dimension                 2.4710
+  radius error                           1.6358
+  texture error                          2.1258
+  perimeter error                        1.6162
+  area error                             0.9132
+  smoothness error                       1.8394
+  compactness error                      2.6046
+  concavity error                        1.1094
+  concave points error                   2.1352
+  symmetry error                         2.3723
+  fractal dimension error                1.3972
+  worst radius                           2.6168
+  worst texture                          2.7109
+  worst perimeter                        2.5855
+  worst area                             2.1175
+  worst smoothness                       2.6617
+  worst compactness                      2.4368
+  worst concavity                        2.5233
+  worst concave points                   3.0908
+  worst symmetry                         2.2285
+  worst fractal dimension                2.1458
+
+==========================================================
+   Results Comparison
+==========================================================
+  Metric                  Our DecisionTree           sklearn
+  --------------------------------------------------------
+  Train accuracy                   98.24%           98.46%
+  Test  accuracy                   95.61%           95.61%
+  Tree depth                             4                 5
+  Leaf nodes                             8                12
+  Train time (ms)                 1208.10             3.23
+
+Prediction agreement on test set: 114/114 (100.0%)
+
+Per-class accuracy on test set:
+  Class          Our model     sklearn   Samples
+  --------------------------------------------
+  Malignant         95.24%      95.24%        42
+  Benign            95.83%      95.83%        72
+
+Top-10 feature importances:
+  Feature                                Our model     sklearn
+  ----------------------------------------------------------
+  mean concave points                       0.2634      0.7435
+  worst texture                             0.2758      0.0781
+  worst area                                0.0637      0.0680
+  worst radius                              0.0355      0.0623
+  mean concavity                            0.1489      0.0175
+  area error                                0.0076      0.0126
+  compactness error                         0.0000      0.0101
+  worst concavity                           0.0000      0.0032
+  worst smoothness                          0.0000      0.0031
+  smoothness error                          0.0000      0.0015
+
+Test records (first 10):
+  [ 0]  True: Benign      Ours: Benign     ✓  sklearn: Benign     ✓  [=]
+  [ 1]  True: Malignant   Ours: Malignant  ✓  sklearn: Malignant  ✓  [=]
+  [ 2]  True: Benign      Ours: Benign     ✓  sklearn: Benign     ✓  [=]
+  [ 3]  True: Benign      Ours: Benign     ✓  sklearn: Benign     ✓  [=]
+  [ 4]  True: Malignant   Ours: Malignant  ✓  sklearn: Malignant  ✓  [=]
+  [ 5]  True: Malignant   Ours: Malignant  ✓  sklearn: Malignant  ✓  [=]
+  [ 6]  True: Malignant   Ours: Malignant  ✓  sklearn: Malignant  ✓  [=]
+  [ 7]  True: Benign      Ours: Benign     ✓  sklearn: Benign     ✓  [=]
+  [ 8]  True: Benign      Ours: Benign     ✓  sklearn: Benign     ✓  [=]
+  [ 9]  True: Malignant   Ours: Malignant  ✓  sklearn: Malignant  ✓  [=]
+Plot saved to results/cancer_plot.png
+

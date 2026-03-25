@@ -1,0 +1,90 @@
+
+==============================================
+   Sensor Failure — Decision Tree Report
+==============================================
+  Train samples  : 480
+  Test  samples  : 120
+  Train accuracy : 100.00%
+  Test  accuracy : 100.00%
+
+Class distribution:
+  Class                    Train    Test
+  ------------------------------------
+  Normal                     116      34
+  Overheating                121      29
+  Mechanical failure         127      23
+  Electrical fault           116      34
+
+Feature entropy on training data (bits, 10-bin histogram):
+  Feature             Entropy (bits)
+  ----------------------------------
+  vibration_hz                1.9823
+  temperature_c               2.4803
+  voltage_v                   2.6473
+  current_a                   2.6340
+  response_ms                 2.6717
+
+Feature importances:
+  vibration_hz        0.2364  █████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+  temperature_c       0.3079  ████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+  voltage_v           0.4556  ██████████████████░░░░░░░░░░░░░░░░░░░░░░
+  current_a           0.0000  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+  response_ms         0.0000  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+
+Tree structure:
+[vibration_hz <= 113.2877]  (n=480, impurity=0.7496)
+├── True:
+│   [temperature_c <= 61.0516]  (n=353, impurity=0.6665)
+│   ├── True:
+│   │   [voltage_v <= 4.0189]  (n=232, impurity=0.5000)
+│   │   ├── True:
+│   │   │   └── [LEAF] Predict class 3 (Electrical fault)  (n=116)
+│   │   └── False:
+│   │       └── [LEAF] Predict class 0 (Normal)  (n=116)
+│   └── False:
+│       └── [LEAF] Predict class 1 (Overheating)  (n=121)
+└── False:
+    └── [LEAF] Predict class 2 (Mechanical failure)  (n=127)
+
+Class legend:
+  class 0 → Normal
+  class 1 → Overheating
+  class 2 → Mechanical failure
+  class 3 → Electrical fault
+
+Single-sample prediction:
+  Features : vibration=210 Hz, temp=44 °C, voltage=4.9 V, current=1.3 A, latency=26 ms
+  Predicted: Mechanical failure (class 2)
+
+Test records (first 10):
+  [ 0]  vib=  57.49 Hz temp= 41.40 °C volt= 3.04 V curr= 3.75 A resp= 65.75 ms
+        True: Electrical fault      Pred: Electrical fault      ✓
+
+  [ 1]  vib=  58.58 Hz temp= 84.79 °C volt= 4.41 V curr= 1.83 A resp= 13.60 ms
+        True: Overheating           Pred: Overheating           ✓
+
+  [ 2]  vib=  51.90 Hz temp= 84.39 °C volt= 5.00 V curr= 1.99 A resp=  9.78 ms
+        True: Overheating           Pred: Overheating           ✓
+
+  [ 3]  vib=  60.97 Hz temp= 81.56 °C volt= 4.97 V curr= 1.70 A resp= 13.24 ms
+        True: Overheating           Pred: Overheating           ✓
+
+  [ 4]  vib=  55.55 Hz temp= 42.00 °C volt= 3.20 V curr= 3.87 A resp= 58.84 ms
+        True: Electrical fault      Pred: Electrical fault      ✓
+
+  [ 5]  vib=  60.39 Hz temp= 43.81 °C volt= 3.24 V curr= 3.79 A resp= 64.40 ms
+        True: Electrical fault      Pred: Electrical fault      ✓
+
+  [ 6]  vib=  49.75 Hz temp= 35.26 °C volt= 5.33 V curr= 1.29 A resp=  7.03 ms
+        True: Normal                Pred: Normal                ✓
+
+  [ 7]  vib=  57.42 Hz temp= 79.38 °C volt= 5.11 V curr= 1.54 A resp=  8.50 ms
+        True: Overheating           Pred: Overheating           ✓
+
+  [ 8]  vib=  50.97 Hz temp= 87.52 °C volt= 4.89 V curr= 1.74 A resp= 14.91 ms
+        True: Overheating           Pred: Overheating           ✓
+
+  [ 9]  vib= 182.58 Hz temp= 49.95 °C volt= 5.34 V curr= 1.43 A resp= 26.17 ms
+        True: Mechanical failure    Pred: Mechanical failure    ✓
+
+Plot saved to results/sensor_failure_plot.png
