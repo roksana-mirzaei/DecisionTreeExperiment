@@ -160,5 +160,3 @@ manim -pql animation/predictor.py PredictScene
 | Manim scene structure | `animation/` |
 | Composition over inheritance | `NodeMobject` uses `VGroup` composition |
 | Type hints + PEP 8 | Throughout the codebase |
-
----
