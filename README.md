@@ -1,6 +1,6 @@
 # Decision Tree from Scratch
 
-> **Author's note** — A personal experiment to understand decision trees by implementing the algorithm from scratch and comparing it against scikit-learn. Built with help from [GitHub Copilot](https://github.com/features/copilot). Animations use [Manim Community](https://docs.manim.community/).
+> **Author's note** — This is a personal experiment to understand decision trees by implementing the algorithm from scratch and comparing it against scikit-learn. Built with help from [GitHub Copilot](https://github.com/features/copilot). Animations use [Manim Community](https://docs.manim.community/).
 
 ---
 
